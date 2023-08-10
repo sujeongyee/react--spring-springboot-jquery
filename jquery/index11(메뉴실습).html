@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {list-style: none;}
+        a { text-decoration: none; color: #000; }
+
+        .gnb {
+            width: 600px;
+            margin: 0 auto;
+         
+        }
+        .gnb:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .gnb .m {
+            float: left;
+            width: 25%;           
+            text-align: center;
+            position: relative;            
+        } 
+        .gnb .m > a {
+            display: block;
+            height: 40px;            
+            line-height: 40px;
+        }        
+        /* 밑줄클래스 */
+        .gnb .m.on > a {
+            border-bottom: 4px solid #725f3f;
+            box-sizing: border-box;
+        }
+
+        .gnb .m ul {
+            position: absolute;
+            left: 0;
+            top: 40px;            
+            width: 100%;
+            background: #000;
+            display: none;
+        }        
+        .gnb .m ul li a {
+            display: block;
+            color: #fff;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+        .gnb .m ul li:last-child a{
+            border: none;
+        }
+        .gnb .m ul li a:hover,
+        .gnb .m ul li a:active,
+        .gnb .m ul li a:focus {            
+            background: #eee;
+            color: #000;
+        }
+
+       
+
+    </style>
+
+    <script src="/js/jquery-3.7.0.min.js"></script>
+
+    <script>
+
+      $(document).ready(function(){
+        $(".gnb > .m").mouseenter(function(){
+          $(event.currentTarget).addClass("on");
+          $(event.currentTarget).find(".menu").show();
+        })
+
+        $(".gnb > .m").mouseleave(function(){
+          $(event.currentTarget).removeClass("on");
+          $(event.currentTarget).find(".menu").hide();
+        })
+
+      })
+
+
+    </script>
+ 
+
+</head>
+<body>
+
+<pre>
+문제설명
+1. .m 클래스에 on클래스가 추가되면 밑줄(border bottom)이 생깁니다.
+2. 제이쿼리 hide()는 display를 none하는 기능
+   제이쿼리 show()는 display를 보여지게하는 기능
+3. .m클래스에 mouseenter가 들어가면 on클래스를 추가하고, 하위에 있는 .menu를 show() 처리합니다.
+
+4. mouseleave시에는 반대로
+</pre>
+
+    <header>
+        <h3 style="text-align:center;">드롭다운메뉴</h3>
+        <ul class="gnb">
+            <li class="m"><a href="#">메뉴1</a>
+                <ul class="menu"><!-- position absolute -->
+                    <li><a href="#">메뉴1_1</a></li>
+                    <li><a href="#">메뉴1_2</a></li>
+                    <li><a href="#">메뉴1_3</a></li>
+                    <li><a href="#">메뉴1_4</a></li>
+                </ul>
+            </li>
+            <li class="m"><a href="#">메뉴2</a>
+                <ul class="menu">
+                    <li><a href="#">메뉴2_1</a></li>
+                    <li><a href="#">메뉴2_2</a></li>
+                    <li><a href="#">메뉴2_3</a></li>
+                    <li><a href="#">메뉴2_4</a></li>
+                </ul>
+            </li>
+            <li class="m"><a href="#">메뉴3</a>
+                <ul class="menu">
+                    <li><a href="#">메뉴3_1</a></li>
+                    <li><a href="#">메뉴3_2</a></li>
+                    <li><a href="#">메뉴3_3</a></li>
+                    <li><a href="#">메뉴3_4</a></li>
+                </ul>
+            </li>
+            <li class="m"><a href="#">메뉴4</a>
+                <ul class="menu">
+                    <li><a href="#">메뉴4_1</a></li>
+                    <li><a href="#">메뉴4_2</a></li>
+                    <li><a href="#">메뉴4_3</a></li>
+                    <li><a href="#">메뉴4_4</a></li>
+                </ul>
+            </li>
+            
+        </ul>
+    </header>
+
+    <article>
+        
+    </article>
+
+    <script>
+      // $(".m").mouseenter(function(){
+      //   $(event.target).closest(".m").toggleClass("on");
+      //   $(event.target).closest(".m").find(".menu").show();
+        
+      // })
+      // $(".m").mouseleave(function(){
+      //   $(event.target).closest(".m").toggleClass("on");
+      //   $(event.target).closest(".m").find(".menu").hide();
+      // })
+
+    </script>
+
+</body>
+</html>

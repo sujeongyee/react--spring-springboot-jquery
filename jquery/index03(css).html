@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+  <ul class="test">
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+  </ul>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+  <div class="box">box</div>
+
+
+  <script>
+    // js
+    // document.querySelectorAll(".test > li")
+    //         .forEach(item => item.style.backgroundColor = "yellow");
+
+    //document.querySelector(".test").style.backgroundColor="yellow";
+
+    //css속성 변경(복수형 태그도 한번에 변경됨)
+
+    $(".test>li").css("backgroundColor","yellow");
+
+    //값 얻기
+    console.log($(".test>li").css("backgroundColor")); // rgb(255, 255, 0) yellow
+     
+    //여러 css값을 한번에 변경
+    $(".box").css({
+      color:"red",
+      backgroundColor:"yellow",
+      display:"inline-block",
+      border:"1px solid #777"
+    })
+
+
+
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.coding404.myweb.product.service.TopicMapper">
+
+	<insert id="topicRegist">
+		insert into topic (topic_id,topic_title,topic_content)
+		values (#{topic_id},#{topic_title},#{topic_content})
+	</insert>
+	
+	<select id="getTopic" resultType="TopicVO">
+		select * from topic where <![CDATA[topic_num > 0]]>
+		<if test="searchTitle !='' and searchTitle!=null">
+  		and topic_title like concat('%',#{searchTitle},'%')
+  		</if>
+  		<if test="searchId != '' and searchId!=null">
+  		and topic_id like concat('%',#{searchId},'%')
+  		</if>
+  		limit #{pageStart},#{amount}
+	</select>
+	
+	<select id = "getTotal" resultType = "int">
+  		select count(*) as total from topic
+  		where <![CDATA[topic_num > 0]]>
+  		<if test="searchTitle !='' and searchTitle!=null">
+  		and topic_title like concat('%',#{searchTitle},'%')
+  		</if>
+  		<if test="searchId != '' and searchId!=null">
+  		and topic_id like concat('%',#{searchId},'%')
+  		</if>
+  	</select>
+	
+	<select id="topicDetail" resultType="TopicVO">
+		select * from topic where topic_num = #{topic_num}
+	</select>
+	
+	<select id="getMyTopic" resultType="TopicVO">
+		select * from topic where topic_id = #{topic_id}
+	</select>
+	
+	<update id="topicModify">
+		update topic set topic_regdate= now() ,
+						 topic_title = #{topic_title},
+						 topic_content = #{topic_content}
+		where topic_num = #{topic_num}
+	</update>
+	
+	<delete id="topicDelete">
+		delete from topic where topic_num = #{topic_num}
+	</delete>
+
+
+</mapper>

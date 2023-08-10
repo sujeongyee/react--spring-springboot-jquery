@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+  <ul id="test">
+
+  </ul>
+
+  <script>
+    setTimeout(()=>{
+      document.getElementById("test").innerHTML = "<li>1</li><li>2</li>"
+    },3000);
+    // 이벤트 위임 on (이벤트종류, 위임할태그, 실행시킬함수)
+    $("#test").on("click","li",function(){
+      console.log("이건뜰까요?");
+    })
+
+
+  </script>
+
+  <hr/>
+
+  <div style="width: 100px; height: 100px; border: 1px solid #777;" class="x">
+  </div>
+
+  <script>
+    //on() 역할이 다양함
+    //이벤트체이닝
+    $(".x").on("mouseenter",function(){
+      console.log('들어갈때 실행됨');
+    }).on("mouseleave",function(){
+      console.log('나갈때 실행됨');
+    })
+
+
+
+  </script>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+  <div class="test1"></div>
+  
+  <div class="test2"></div>
+
+
+  <script>
+    //js
+    //document.querySelector(".test1").innerHTML = "값";
+    
+    //값을 넣기
+    $(".test1").html("<a href ='#'>홍길동</a>");
+
+    //값을 얻기
+    console.log($(".test1").html());
+
+    //순수한 text 형태로 넣기
+    $(".test2").text("<h4>순수한 텍스트</h4>")
+ 
+
+  </script>
+  
+</body>
+</html>

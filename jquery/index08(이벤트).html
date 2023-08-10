@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+  <button id="btn">버튼</button>
+
+  <select id="sel">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+  </select>
+
+  <div style="width: 100px; height: 100px; border: 1px solid #777;" class="x">
+    
+  </div>
+
+  <input type="text" id="test"/>
+
+  <script>
+
+    $("#btn").click(function(){
+      alert('버튼클릭');
+    })
+
+    $("#sel").change(function(){
+      alert("값이 변경됨");
+    })
+
+    $("#test").keyup(function(){
+      
+      console.log($(event.target).val())
+    })
+
+    $(".x").mouseover(function(){
+      $(event.target).css("backgroundColor","red");
+    })
+
+    $(".x").mouseleave(function(){
+      $(event.target).css("backgroundColor","transparent"); // 백그라운드기본값
+    })
+
+
+
+  </script>
+  
+</body>
+</html>

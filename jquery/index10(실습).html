@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
+    
+    
+    <style type="text/css">
+        .center {
+            text-align: center;
+        }
+        .content,
+        .content .left,
+        .content .right {
+            width: 50%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 5px;
+        }
+        .content {
+            overflow: hidden;
+            border: 1px solid #777;
+        }
+        .content .left,
+        .content .right {
+            float: left;
+        }
+        
+        .left .inner,
+        .right .inner {
+            border: 1px solid #777;
+            height: 300px;
+        }
+        
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .link{
+          text-decoration: none;
+          color: black;
+        }
+        
+    </style>
+    
+</head>
+<body>
+    
+    <header>
+        <div class="center">
+            <h2>야간모드</h2>
+            <button type="button" id="btn1" class="dark">어둡게보기</button>
+            <button type="button" id="btn2" class="name">이름보기</button>
+            <hr>
+        </div>
+    </header>
+    
+    <section>
+        <div class="content">
+            <div class="left">
+                <div class="inner"><img src="짱구.jpg"></div>
+            </div>
+            <div class="right">
+                <div class="inner">
+                    <p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다</p>
+                    <a href="https://www.naver.com" class="link">위키백과</a>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+
+    <script>
+
+      $("#btn1").click(function(){
+        if($("#btn1").attr("class") == 'dark'){
+          $("#btn1").html("밝게보기");
+          $("body").css("backgroundColor","black");
+          $("p,h2,a").css("color","white");
+          $("#btn1").toggleClass("dark");
+        }else{
+          $("#btn1").html("어둡게보기");
+          $("body").css("backgroundColor","white");
+          $("p,h2,a").css("color","black");
+          $("#btn1").toggleClass("dark");
+        }
+      })
+
+      $("#btn2").click(function(){
+        if($("#btn2").attr("class")=='name'){
+          $(".inner > p").html("홍길동~~~");
+          $(".inner > a").hide(); // display : none
+          $("#btn2").toggleClass('name');
+        }else{
+          $(".inner>p").html("~~~~~~~~~~태그");
+          $(".inner>a").show(); // display : 보여짐
+          $("#btn2").toggleClass('name');
+        }
+      })
+
+
+
+      // $("#btn1").click(function(){   
+      //   if($("#btn1").html()=='밝게보기'){
+      //     $("body").css({backgroundColor:"white", color:"black"});
+      //     $(this).html("어둡게보기");
+      //     $(".center").find("h2").html("야간모드");
+      //     $(".link").css("color","black");
+      //   }else{
+      //     $("body").css({backgroundColor:"black", color:"white"});
+      //     $(this).html("밝게보기");
+      //     $(".center").find("h2").html("라이트모드");
+      //     $(".link").css("color","white");
+      //   } 
+      // })
+
+      // $("#btn2").click(function(){
+        
+      //   if($(".right > .inner").hasClass("name")){
+      //     $(".right > .inner").toggleClass("name");
+      //     $(".right > .inner").html('<p>자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다</p><a href="https://www.naver.com" class="link">위키백과</a>');
+      //   }else{
+      //     $(".right > .inner").toggleClass("name");
+      //     $(".right > .inner").html("<p>박수정</p>");
+         
+      //   }
+
+      // })
+
+    </script>
+
+    
+
+    
+
+</body>
+</html>

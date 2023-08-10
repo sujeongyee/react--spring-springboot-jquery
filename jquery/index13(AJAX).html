@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="/js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+
+  <script>
+    $.ajax({
+      url:"http://localhost:8181/api/v1/getInfo",
+      type:"post",
+      contentType:"application/json", // 내가 보내는 데이터에 대한 타입
+      data:JSON.stringify({"num":1,"name":"떡볶이언제시킬래?"}),
+      dataType:"json", // html,xml,text서버에서 돌려받은 데이터에 대한 타입 (json타입으로 받겠다) 생략가능
+      success:function(data){console.log(data)}, //요청성공시 콜백받을 함수
+      error:function(status,error){console.log(status),console.log(error)} // 에러발생기 콜백받을 함수
+
+    })
+
+    ///////////////////////////////////////////
+
+    $.ajax({
+      url:"http://localhost:8181/api/v1/getData/1/홍길동",
+      type:"get",
+      success:function(data){console.log(data)},
+      error:function(status,err){console.log(status),console.log(error)}
+    })
+  </script>
+  
+</body>
+</html>

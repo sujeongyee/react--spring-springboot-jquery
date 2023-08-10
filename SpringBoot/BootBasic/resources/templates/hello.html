@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	hello springboot
+	
+	<button id="getData">겟방식</button>
+	<button id="getJSON">포스트방식</button>
+	<button id="practiceGet">연습겟방식</button>
+	<button id="practicePost">연습포스트방식</button>
+	
+	<script>
+		//////////
+		let getData = document.getElementById("getData");
+		getData.onclick = () =>{
+			
+			fetch("/getData?sno=1&first=박나쵸")
+			.then(response => response.json())
+			.then(t=> console.log(t))
+		}
+		//////////
+		//포스트 방식으로 fetch
+		let getJSON = document.getElementById("getJSON");
+		getJSON.onclick = () => {
+			fetch("/getJSON",{
+				method:"post",
+				headers:{
+					"Content-Type":"application/json"
+				},
+				body:JSON.stringify({"sno":1,"first":"박","last":"나쵸"
+				})
+			})
+			.then(response => response.json())
+			.then(t => console.log(t))
+		}
+		
+		//겟 방식
+		let practiceGet = document.getElementById("practiceGet");
+		
+		practiceGet.onclick = () => {
+			fetch("/api/v1/getData?num=1&name=박나쵸")
+			.then(response=> response.json())
+			.then(result => console.log(result))
+		}
+		//포스트 방식
+		let practicePost = document.getElementById("practicePost");
+		
+		practicePost.onclick = () => {
+			fetch("/api/v1/getInfo",{
+				method:"post",
+				headers:{
+					"Content-Type" : "application/json"
+				},
+				body:JSON.stringify({"num" : 18 , "name" : "박수정"})	 			
+			})
+			.then(response => response.json())
+			.then(result => console.log(result))
+			
+		}
+		
+		
+	</script>
+
+</body>
+</html>

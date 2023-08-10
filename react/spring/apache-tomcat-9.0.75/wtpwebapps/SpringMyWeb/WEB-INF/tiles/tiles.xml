@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+  "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+  <tiles-definitions>
+  	
+  	<!-- 
+  		타일즈 뷰에 대한 경로 설정 
+  		template = 타일즈 뷰의 경로
+  		name = 타일즈 뷰에서 사용하는 이름값
+  		value = 실제 파일의 경로
+  	-->
+  	
+  	
+  	<!-- 템플릿은 여러모형이 있을 수 있고, 단, * 경로 맵핑보다 위에 -->
+  	
+  	<definition name="baseDefault" template="/WEB-INF/tiles/templateDefault.jsp">
+  		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"/>
+  		<put-attribute name="body" value=""/>
+  		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"/>
+  	</definition>
+  	
+  	<!--바디영역은 매번 바뀌는 영역이기 때문에 baseDefault뷰를 상속을 받아 처리합니다. -->
+  	<!-- *는 컨트롤러에서 반환받는 뷰의 경로 -->
+  	<!-- *는 순서대로 1,2,3............ -->
+  	<definition name="*" extends="baseDefault">
+  		<put-attribute name="body" value = "/WEB-INF/views/{1}.jsp"></put-attribute>
+  	</definition>
+  	<definition name="*/*" extends="baseDefault">
+  		<put-attribute name="body" value = "/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
+  	</definition>
+  	<definition name="*/*/*" extends="baseDefault">
+  		<put-attribute name="body" value = "/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+  	</definition>
+  	
+  	
+  	<!-- login 같은 페이지는 타일즈 템플릿을 사용하지 않고 그대로 맵핑 -->
+  	<definition name="user/login" template="/WEB-INF/views/user/login.jsp">
+  	
+  	</definition>
+  	
+  	
+  	
+  </tiles-definitions>
+  
+  
+  

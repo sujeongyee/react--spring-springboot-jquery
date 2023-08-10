@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script src="js/jquery-3.7.0.min.js"></script>
+ 
+</head>
+<body>
+
+  <div class="apple">홍길동</div>
+  
+  <input type="text" id="melon" value="이순신"/>
+
+  <input type="hidden" value="홍길동"/>
+
+  <script>
+
+    // var apple = document.querySelector(".apple");
+    // console.log(apple);
+
+    /*
+    $("선택자")를 사용하면 제이쿼리 함수를 적용할 수 있는 상태가 됩니다.
+    $("선택자")[인덱스] 를 사용하면 순수한 태그을 얻을 수도 있습니다.
+    */
+
+    //var apple = $(".apple");
+    //console.log(apple);
+
+    //console.log($(".apple")[0]); 태그
+    // var a = document.getElementById("melon").value;
+    // var a = $("#melon").val() // 값을 얻어옵니다 (매개변수가 있으면 값을 변경)
+    // console.log(a); //이순신
+
+
+    //값을 변경하기
+    //document.getElementById("melon").value = "이거바꾼값";
+    $("#melon").val("이거바꾼값");
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+  
+</body>
+</html>
